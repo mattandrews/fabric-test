@@ -6,9 +6,9 @@ from fabric.contrib.console import confirm
 env.hosts = ['matt@162.243.234.162:25000']
 
 def commit():
-    local("git add .")
+    # local("git add .")
     msg = prompt("commit message: ")
-    local('git commit -m "%s"' % msg)
+    local('git add . && git commit -m "%s"' % msg)
 
 def push():
     local("git push")
