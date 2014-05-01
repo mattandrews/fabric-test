@@ -6,10 +6,10 @@ from fabric.contrib.console import confirm
 env.hosts = ['matt@162.243.234.162:25000']
 
 def commit():
-    # local("git add .")
-    with settings(warn_only=True):
-        msg = prompt("commit message: ")
-        local('git add . && git commit -m "%s"' % msg)
+    with hide('warnings'):
+        with settings(warn_only=True):
+            msg = prompt("commit message: ")
+            local('git add . && git commit -m "%s"' % msg)
 
 def push():
     local("git push")
